@@ -1,0 +1,10 @@
+#!/bin/sh
+
+exec sudo -u "$PUSER" -g "$PGROUP" /usr/bin/chromedriver \
+	--disable-dev-shm-usage \
+	--whitelisted-ips \
+	--allowed-origins=${CHROMEDRIVER_ALLOWED_ORIGINS:-*} \
+	--enable-chrome-logs \
+	--port=${CHROMEDRIVER_PORT:-9515} \
+	--log-level=${CHROMEDRIVER_LOG_LEVEL:-WARNING} \
+	--url-base=${CHROMEDRIVER_URL_BASE:-/}
