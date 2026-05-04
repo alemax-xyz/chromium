@@ -18,9 +18,7 @@ FROM library/debian:stable-slim AS build
 ENV LANG=C.UTF-8
 
 RUN export DEBIAN_FRONTEND=noninteractive \
- && apt-get update \
- && apt-get install -y \
-        apt-utils
+ && apt-get update
 
 RUN mkdir -p /build
 WORKDIR /build
