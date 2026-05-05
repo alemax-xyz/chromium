@@ -190,8 +190,12 @@ WORKDIR /
 
 FROM clover/common
 
-ENV LANG=C.UTF-8
-ENV CHROMIUM_ARGUMENTS="--disable-dev-shm-usage --disable-crash-reporter"
+ENV LANG=C.UTF-8 \
+    CHROMEDRIVER_PORT=9515 \
+    CHROMEDRIVER_DISABLE_DEV_SHM_USAGE=1 \
+    CHROMEDRIVER_WHITELISTED_IPS=1 \
+    CHROMEDRIVER_ALLOWED_ORIGINS=* \
+    CHROMIUM_ARGUMENTS="--disable-dev-shm-usage --disable-crash-reporter"
 
 COPY --from=build /rootfs /
 
